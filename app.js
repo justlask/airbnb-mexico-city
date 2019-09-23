@@ -9,11 +9,11 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
-
+console.log(process.env.MONGO_URI)
 mongoose
   .connect(process.env.MONGO_URI, {useNewUrlParser: true})
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x}"`)
+    console.log(`Connected to Mongo! Database name: "${x.connection.name}"`)
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)

@@ -5,9 +5,9 @@ const listingsAndReviews = require('../models/reviewsAndListings')
 
 
 router.get("/listings", (req,res,next) => {
-  listingsAndReviews.find({}).then(data => {
-    console.log(data)
-    res.render('listings', {data: data})
+  listingsAndReviews.find().limit(5).then(data => {
+    console.log('return the data ',data)
+    res.render('listings', {data})
   }).catch(err => next(err))
 })
 

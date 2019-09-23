@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const listingsAndReviewsSchema = new Schema({
-  _id : String,
   listing_url: String,
   name: String,
   summary: String,
@@ -39,7 +38,12 @@ const listingsAndReviewsSchema = new Schema({
   availability: Object,
   review_scores: Object,
   reviews: Array
+}, {
+  collection: 'listingsAndReviews'
 })
-const listingsAndReviews = mongoose.model("listingsAndReviews", listingsAndReviewsSchema)
+
+
+
+const listingsAndReviews = mongoose.model("ListingsAndReviews", listingsAndReviewsSchema)
 
 module.exports = listingsAndReviews;
